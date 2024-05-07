@@ -1,5 +1,4 @@
 # Caoculadora
-------
 Meu Primeiro App no GitHub
 
 ## Alterações
