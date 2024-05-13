@@ -14,23 +14,25 @@ struct ContentView: View {
     
     @State var result: Int?
     
-    let portes = ["Pequeno", "Médio", "Grande"]
-    @State var porteSelecionado = "Pequeno"
+//    let portes = ["Pequeno", "Médio", "Grande"]
+//    @State var porteSelecionado = "Pequeno"
+    @State var porteSelected = Porte.pequeno
     
+    
+// MARK: - VSTACK
     var body: some View {
         VStack(alignment: .leading, spacing: 20.0) {
             
             Spacer()
             
             Text("Qual a idade do seu cão?")
-                .fontWeight(.bold)
                 .foregroundColor(Color.indigo)
-                .font(.system(size: 24))
-            
+                .font(.header5)
+// MARK: - ANOS
             VStack(alignment: .leading, spacing: 8.0) {
                 Text("Anos")
                     .foregroundColor(Color.indigo)
-                    .font(.system(size: 16, weight: .bold))
+                    .font(.body1)
                 
                 TextField(
                     "Quantos anos completos tem seu cão?",
@@ -38,10 +40,10 @@ struct ContentView: View {
                     format: .number
                 )
             }
-            
+// MARK: - MESES
             VStack(alignment: .leading, spacing: 8.0) { Text("Meses")
                     .foregroundColor(Color.indigo)
-                    .font(.system(size: 16, weight: .bold))
+                    .font(.body1)
                 
                 
                 TextField(
@@ -50,10 +52,10 @@ struct ContentView: View {
                     format: .number
                 )
             }
-            
+// MARK: - PORTE
             Text("Porte")
                 .foregroundColor(Color.indigo)
-                .font(.system(size: 16, weight: .bold, design:.rounded))
+                .font(.body1)
             
             //segmented control
             
@@ -69,23 +71,24 @@ struct ContentView: View {
             //                    }
             //                    .pickerStyle(.segmented)
             //                    //.padding()
-            Picker("Portes", selection: $porteSelecionado)
+// MARK: - PICKER
+            Picker("Portes", selection: $porteSelected)
             {
-                ForEach(portes, id:\.self) {porte in Text(porte)
+                ForEach(Porte.allCases, id:\.self) {porte in Text(porte.rawValue)
                 }
             }
             .pickerStyle(.segmented)
             
             Spacer()
-            
+// MARK: - CLARINHA OU RESULTADO
             if let result {
                 Text("Seu cachorro tem, em idade humana...")
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color.indigo)
                     .bold()
-                    .font(.system(size: 16, weight: .bold, design:.rounded))
+                    .font(.body1)
                 Text("\(result) anos")
-                    .font(.system(size: 60, weight: .bold, design:.rounded))
+                    .font(.display)
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color.indigo)
             } else {
@@ -98,9 +101,9 @@ struct ContentView: View {
             }
             
             Spacer()
-            
+// MARK: - BOTÃO
             Button("Cãocular", action: processYears)
-                .font(.system(size: 16, weight: .bold, design:.rounded))
+                .font(.body1)
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 .frame(height: 50)
                 .background(.indigo)
@@ -133,16 +136,28 @@ struct ContentView: View {
         // * grande: 8
         
         let multiplicador: Int
-        switch porteSelecionado {
-        case "Pequeno":
+        switch porteSelected {
+        case .pequeno:
             multiplicador = 6
-        case "Médio":
+        case .médio:
             multiplicador = 7
-        case "Grande":
+        case .grande:
             multiplicador = 8
-        default:
-            multiplicador = 0
         }
+        
+//        Picker("Portes", selection: $porteSelecionado)
+//        {
+//            ForEach(portes, id:\.self) {porte in Text(porte)
+//        let multiplicador: Int
+//        switch porteSelecionado {
+//        case "Pequeno":
+//            multiplicador = 6
+//        case "Médio":
+//            multiplicador = 7
+//        case "Grande":
+//            multiplicador = 8
+//        default:
+//            multiplicador = 0
         
         result = years * multiplicador + months * multiplicador/12
     }

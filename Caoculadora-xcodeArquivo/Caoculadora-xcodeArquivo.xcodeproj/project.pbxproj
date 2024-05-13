@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2824BB12BF24E0900F245E5 /* Porte.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2824BB02BF24E0900F245E5 /* Porte.swift */; };
+		B2824BB32BF25C0000F245E5 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2824BB22BF25C0000F245E5 /* StyleGuide.swift */; };
 		B2E919502BEA6D9700751F48 /* Caoculadora_xcodeArquivoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E9194F2BEA6D9700751F48 /* Caoculadora_xcodeArquivoApp.swift */; };
 		B2E919522BEA6D9700751F48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E919512BEA6D9700751F48 /* ContentView.swift */; };
 		B2E919542BEA6D9800751F48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2E919532BEA6D9800751F48 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B2824BB02BF24E0900F245E5 /* Porte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Porte.swift; sourceTree = "<group>"; };
+		B2824BB22BF25C0000F245E5 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		B2E9194C2BEA6D9700751F48 /* Caoculadora-xcodeArquivo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Caoculadora-xcodeArquivo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2E9194F2BEA6D9700751F48 /* Caoculadora_xcodeArquivoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caoculadora_xcodeArquivoApp.swift; sourceTree = "<group>"; };
 		B2E919512BEA6D9700751F48 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			children = (
 				B2E9194F2BEA6D9700751F48 /* Caoculadora_xcodeArquivoApp.swift */,
 				B2E919512BEA6D9700751F48 /* ContentView.swift */,
+				B2824BB22BF25C0000F245E5 /* StyleGuide.swift */,
+				B2824BB02BF24E0900F245E5 /* Porte.swift */,
 				B2E919532BEA6D9800751F48 /* Assets.xcassets */,
 				B2E919552BEA6D9800751F48 /* Preview Content */,
 			);
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2E919522BEA6D9700751F48 /* ContentView.swift in Sources */,
+				B2824BB12BF24E0900F245E5 /* Porte.swift in Sources */,
+				B2824BB32BF25C0000F245E5 /* StyleGuide.swift in Sources */,
 				B2E919502BEA6D9700751F48 /* Caoculadora_xcodeArquivoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
