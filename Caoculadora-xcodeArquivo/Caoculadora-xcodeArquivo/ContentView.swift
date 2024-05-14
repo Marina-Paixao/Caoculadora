@@ -14,12 +14,12 @@ struct ContentView: View {
     
     @State var result: Int?
     
-//    let portes = ["Pequeno", "Médio", "Grande"]
-//    @State var porteSelecionado = "Pequeno"
+    //    let portes = ["Pequeno", "Médio", "Grande"]
+    //    @State var porteSelecionado = "Pequeno"
     @State var porteSelected = Porte.pequeno
     
     
-// MARK: - VSTACK
+    // MARK: - VSTACK
     var body: some View {
         VStack(alignment: .leading, spacing: 20.0) {
             
@@ -28,7 +28,7 @@ struct ContentView: View {
             Text("Qual a idade do seu cão?")
                 .foregroundColor(Color.indigo)
                 .font(.header5)
-// MARK: - ANOS
+            // MARK: - ANOS
             VStack(alignment: .leading, spacing: 8.0) {
                 Text("Anos")
                     .foregroundColor(Color.indigo)
@@ -40,7 +40,7 @@ struct ContentView: View {
                     format: .number
                 )
             }
-// MARK: - MESES
+            // MARK: - MESES
             VStack(alignment: .leading, spacing: 8.0) { Text("Meses")
                     .foregroundColor(Color.indigo)
                     .font(.body1)
@@ -52,7 +52,7 @@ struct ContentView: View {
                     format: .number
                 )
             }
-// MARK: - PORTE
+            // MARK: - PORTE
             Text("Porte")
                 .foregroundColor(Color.indigo)
                 .font(.body1)
@@ -71,7 +71,7 @@ struct ContentView: View {
             //                    }
             //                    .pickerStyle(.segmented)
             //                    //.padding()
-// MARK: - PICKER
+            // MARK: - PICKER
             Picker("Portes", selection: $porteSelected)
             {
                 ForEach(Porte.allCases, id:\.self) {porte in Text(porte.rawValue)
@@ -80,7 +80,7 @@ struct ContentView: View {
             .pickerStyle(.segmented)
             
             Spacer()
-// MARK: - CLARINHA OU RESULTADO
+            // MARK: - CLARINHA OU RESULTADO
             if let result {
                 Text("Seu cachorro tem, em idade humana...")
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
@@ -97,11 +97,11 @@ struct ContentView: View {
                     .scaledToFit()
                     .frame(maxHeight: 150)
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-//                    .shadow(radius: 5)
+                //                    .shadow(radius: 5)
             }
             
             Spacer()
-// MARK: - BOTÃO
+            // MARK: - BOTÃO
             Button("Cãocular", action: processYears)
                 .font(.body1)
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
@@ -129,40 +129,10 @@ struct ContentView: View {
             return
         }
         
-        // o resultado vai ser os anos * multiplicador + a fração do ano em meses * 7
-        //multiplicador:
-        // * pequeno: 6
-        // * médio: 7
-        // * grande: 8
+        result = porteSelected.calcularIdade(deAnos: years, eMeses: months)
         
-        let multiplicador: Int
-        switch porteSelected {
-        case .pequeno:
-            multiplicador = 6
-        case .médio:
-            multiplicador = 7
-        case .grande:
-            multiplicador = 8
-        }
-        
-//        Picker("Portes", selection: $porteSelecionado)
-//        {
-//            ForEach(portes, id:\.self) {porte in Text(porte)
-//        let multiplicador: Int
-//        switch porteSelecionado {
-//        case "Pequeno":
-//            multiplicador = 6
-//        case "Médio":
-//            multiplicador = 7
-//        case "Grande":
-//            multiplicador = 8
-//        default:
-//            multiplicador = 0
-        
-        result = years * multiplicador + months * multiplicador/12
     }
 }
-
 #Preview {
     ContentView()
 }

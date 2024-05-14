@@ -57,8 +57,8 @@
 			children = (
 				B2E9194F2BEA6D9700751F48 /* Caoculadora_xcodeArquivoApp.swift */,
 				B2E919512BEA6D9700751F48 /* ContentView.swift */,
-				B2824BB22BF25C0000F245E5 /* StyleGuide.swift */,
 				B2824BB02BF24E0900F245E5 /* Porte.swift */,
+				B2824BB22BF25C0000F245E5 /* StyleGuide.swift */,
 				B2E919532BEA6D9800751F48 /* Assets.xcassets */,
 				B2E919552BEA6D9800751F48 /* Preview Content */,
 			);
