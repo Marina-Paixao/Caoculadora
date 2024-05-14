@@ -17,6 +17,8 @@ struct ContentView: View {
     //    let portes = ["Pequeno", "Médio", "Grande"]
     //    @State var porteSelecionado = "Pequeno"
     @State var porteSelected = Porte.pequeno
+    @State var campoVazio = false
+    let tituloPreencherCampo = "Preencha os todos os campos para cãocular!"
     
     
     // MARK: - VSTACK
@@ -25,7 +27,7 @@ struct ContentView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20.0) {
                     
-//                    Spacer()
+                    //                    Spacer()
                     
                     Text("Qual a idade do seu cão?")
                         .foregroundColor(Color.indigo600)
@@ -94,6 +96,7 @@ struct ContentView: View {
                             .font(.display)
                             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                             .foregroundColor(Color.indigo600)
+                            .contentTransition(.numericText())
                     } else {
                         Image(ImageResource.clarinha)
                             .resizable()
@@ -119,7 +122,11 @@ struct ContentView: View {
                 .keyboardType(.numberPad)
                 .padding()
                 .containerRelativeFrame(.vertical)
+                //                .animation(.easeInOut.speed(0.5), value: result)
             }
+            .alert(tituloPreencherCampo, isPresented: $campoVazio, actions: {
+                Button("OK", role: .cancel, action: {})
+            })
             .navigationTitle("Cãoculadora")
             .scrollDismissesKeyboard(.immediately)
             .toolbarBackground(.indigo, for: .navigationBar)
@@ -135,16 +142,18 @@ extension ContentView {
         
         guard let years, let months else {
             print("Campo não preenchido")
+            campoVazio = true
             return
         }
         
         guard months > 0 || years > 0 else {
             print("Pelo menos um campo deve ser maior que zero")
             return
+//Adicionar alerta caso o campo preenchido de anos e meses seja menor que zero?
         }
-        
-        result = porteSelected.calcularIdade(deAnos: years, eMeses: months)
-        
+        withAnimation(.easeInOut.speed(0.5)){
+            result = porteSelected.calcularIdade(deAnos: years, eMeses: months)
+        }
     }
 }
 #Preview {
