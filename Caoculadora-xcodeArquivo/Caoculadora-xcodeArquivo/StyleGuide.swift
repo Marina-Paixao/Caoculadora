@@ -49,5 +49,5 @@ extension Font {
 
 
 extension Color {
-    static let corDoApp: Color  = Color(red: 79, green: 70, blue: 229)
-    }
+    static let corDoApp: Color  = Color(red: 79/255, green: 70/255, blue: 229/255)
+}
